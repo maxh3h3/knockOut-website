@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://knockoutstudy.com/sitemap.xml
+
+# Disallow crawling of any admin or private directories (add as needed)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow crawling of important pages
+Allow: /index.html
+Allow: /cto.html
+Allow: /support.html
+Allow: /privacy-policy.html
+Allow: /assets/
+
+# Crawl delay (optional, in seconds)
+Crawl-delay: 1

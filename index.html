@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>knockOut Study - Master Languages Through Smart Learning</title>
+    <meta name="description" content="Revolutionize your language learning with knockOut Study. Master new languages through spaced repetition, interactive lessons, and smart flashcards.">
+    <meta name="keywords" content="language learning, spaced repetition, flashcards, language app, mobile learning">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="knockOut Study - Master Languages Through Smart Learning">
+    <meta property="og:description" content="Revolutionize your language learning with knockOut Study. Master new languages through spaced repetition, interactive lessons, and smart flashcards.">
+    <meta property="og:image" content="assets/main logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="">
+    <meta property="twitter:title" content="knockOut Study - Master Languages Through Smart Learning">
+    <meta property="twitter:description" content="Revolutionize your language learning with knockOut Study. Master new languages through spaced repetition, interactive lessons, and smart flashcards.">
+    <meta property="twitter:image" content="assets/main logo.png">
+    
+    <link rel="icon" href="assets/app_icon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button.primary {
+            background: #ff6b6b;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .app-preview {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .phone-mockup {
+            width: 200px;
+            height: auto;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .phone-mockup:hover {
+            transform: translateY(-10px);
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px 20px 0 0;
+            margin-top: 40px;
+            padding: 60px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ff6b6b;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ff6b6b;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .phone-mockup {
+                width: 150px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <img src="assets/main logo.png" alt="knockOut Study Logo" class="logo">
+                <nav class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="support.html" class="nav-link">Support</a>
+                    <a href="privacy-policy.html" class="nav-link">Privacy</a>
+                    <a href="cto.html" class="nav-link">Join Our Team</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Master Languages Smartly</h1>
+            <p>Revolutionize your language learning with spaced repetition, interactive lessons, and personalized flashcards that adapt to your pace.</p>
+            
+            <div class="cta-buttons">
+                <a href="#download" class="cta-button primary">Download App</a>
+                <a href="#features" class="cta-button secondary">Learn More</a>
+            </div>
+
+            <div class="app-preview">
+                <img src="assets/Simulator Screenshot - iPhone 16 Pro - 2025-06-29 at 10.45.11.png" alt="knockOut Study - Course Overview" class="phone-mockup">
+                <img src="assets/Simulator Screenshot - iPhone 16 Pro - 2025-06-29 at 18.41.03.png" alt="knockOut Study - Study Session" class="phone-mockup">
+                <img src="assets/Simulator Screenshot - iPhone 16 Pro - 2025-06-29 at 18.42.44.png" alt="knockOut Study - Dictionary Feature" class="phone-mockup">
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="section" id="features">
+                <h2>Why Choose knockOut Study?</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-fade-in">
+                        <div class="feature-icon">🧠</div>
+                        <h3>Smart Spaced Repetition</h3>
+                        <p>Our algorithm schedules reviews precisely when you're about to forget, maximizing retention while minimizing study time.</p>
+                    </div>
+                    <div class="feature-card animate-fade-in">
+                        <div class="feature-icon">📚</div>
+                        <h3>Structured Courses</h3>
+                        <p>Progress through carefully designed lessons: Grammar for rules, Reading for comprehension, and Stories for context.</p>
+                    </div>
+                    <div class="feature-card animate-fade-in">
+                        <div class="feature-icon">🃏</div>
+                        <h3>Adaptive Flashcards</h3>
+                        <p>Create custom decks and let our system track word maturity stages for optimal learning progression.</p>
+                    </div>
+                    <div class="feature-card animate-fade-in">
+                        <div class="feature-icon">📖</div>
+                        <h3>In-Lesson Dictionary</h3>
+                        <p>Tap any word for instant definitions, grammar info, and one-click flashcard creation without breaking your flow.</p>
+                    </div>
+                    <div class="feature-card animate-fade-in">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your learning journey with detailed statistics and achievements that keep you motivated.</p>
+                    </div>
+                    <div class="feature-card animate-fade-in">
+                        <div class="feature-icon">💎</div>
+                        <h3>Gamified Learning</h3>
+                        <p>Earn gems, unlock content, and achieve milestones that make learning feel like playing your favorite game.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Proven Learning Method</h2>
+                <p style="text-align: center; font-size: 1.1rem; color: #666; max-width: 800px; margin: 0 auto;">
+                    Built on scientific research in cognitive psychology, knockOut Study combines the proven effectiveness of spaced repetition with modern interactive design. Our approach helps you learn faster, remember longer, and enjoy the process.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <section class="stats-section">
+        <div class="container">
+            <h2>Learning That Works</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>20+</h3>
+                    <p>Requests per second<br>stress-tested</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3K+</h3>
+                    <p>Concurrent users<br>supported</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3</h3>
+                    <p>Lesson types for<br>comprehensive learning</p>
+                </div>
+                <div class="stat-item">
+                    <h3>∞</h3>
+                    <p>Custom flashcards<br>you can create</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="download">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Get The App</h4>
+                    <p>Coming soon to App Store and Google Play</p>
+                    <p style="margin-top: 10px;">TestFlight version available now</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="support.html">Help Center</a><br>
+                    <a href="mailto:maxx.hamad@gmail.com">Contact Support</a><br>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="cto.html">Join Our Team</a><br>
+                    <a href="mailto:maxx.hamad@gmail.com">Partnership Inquiries</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 knockOut Study. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
