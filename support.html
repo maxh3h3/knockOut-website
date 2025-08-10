@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - knockOut Learn | Help Center & FAQ</title>
-    <meta name="description" content="Get help with knockOut Learn language learning app. Find answers to frequently asked questions, troubleshooting guides, and contact our support team.">
-    <meta name="keywords" content="knockOut Learn support, language learning help, FAQ, troubleshooting, spaced repetition, flashcards help, app support">
+    <title>Support - knockOut Study | Help Center & FAQ</title>
+    <meta name="description" content="Get help with knockOut Study language learning app. Find answers to frequently asked questions, troubleshooting guides, and contact our support team.">
+    <meta name="keywords" content="knockOut Study support, language learning help, FAQ, troubleshooting, spaced repetition, flashcards help, app support">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
-    <meta property="og:title" content="Support - knockOut Learn | Help Center & FAQ">
-    <meta property="og:description" content="Get help with knockOut Learn language learning app. Find answers to frequently asked questions, troubleshooting guides, and contact our support team.">
+    <meta property="og:title" content="Support - knockOut Study | Help Center & FAQ">
+    <meta property="og:description" content="Get help with knockOut Study language learning app. Find answers to frequently asked questions, troubleshooting guides, and contact our support team.">
     <meta property="og:image" content="assets/main logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="">
-    <meta property="twitter:title" content="Support - knockOut Learn | Help Center & FAQ">
-    <meta property="twitter:description" content="Get help with knockOut Learn language learning app. Find answers to frequently asked questions, troubleshooting guides, and contact our support team.">
+    <meta property="twitter:title" content="Support - knockOut Study | Help Center & FAQ">
+    <meta property="twitter:description" content="Get help with knockOut Study language learning app. Find answers to frequently asked questions, troubleshooting guides, and contact our support team.">
     <meta property="twitter:image" content="assets/main logo.png">
     
     <style>
@@ -29,17 +29,21 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #fafafa;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
         .header {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-content {
@@ -70,25 +74,27 @@
         }
 
         .nav-link:hover {
-            color: #ff7f00;
+            color: #667eea;
         }
 
         .main-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px 40px;
+            padding: 40px 20px;
         }
 
         .container {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
         }
         h1 { 
-            color: #ff7f00; 
+            color: #2c3e50; 
             text-align: center;
             margin-bottom: 10px;
+            font-weight: 700;
         }
         .subtitle {
             text-align: center;
@@ -97,18 +103,20 @@
             font-style: italic;
         }
         h2 { 
-            color: #333; 
+            color: #2c3e50; 
             margin-top: 30px;
-            border-bottom: 2px solid #ff7f00;
+            border-bottom: 2px solid #667eea;
             padding-bottom: 5px;
+            font-weight: 600;
         }
         .contact-box {
-            background: linear-gradient(135deg, #ff7f00, #ff9500);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
             text-align: center;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
         }
         .contact-box h3 {
             margin: 0 0 15px 0;
@@ -122,10 +130,16 @@
         }
         .faq-item {
             background: #f8f9fa;
-            padding: 15px;
-            margin: 10px 0;
-            border-left: 4px solid #ff7f00;
-            border-radius: 0 5px 5px 0;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 0 10px 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         .faq-question {
             font-weight: bold;
@@ -145,15 +159,17 @@
             border: 1px solid #e9ecef;
         }
         .feature-card h3 {
-            color: #ff7f00;
+            color: #667eea;
             margin-top: 0;
+            font-weight: 600;
         }
         .version-info {
-            background: #e7f3ff;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
-            border-left: 4px solid #007acc;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid #667eea;
+            border: 1px solid rgba(102, 126, 234, 0.2);
         }
         ul li {
             margin: 8px 0;
@@ -183,7 +199,7 @@
     <header class="header">
         <div class="header-content">
             <a href="index.html">
-                <img src="assets/main logo.png" alt="knockOut Learn Logo" class="logo">
+                <img src="assets/main logo.png" alt="knockOut Study Logo" class="logo">
             </a>
             <nav class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
@@ -195,7 +211,7 @@
 
     <div class="main-container">
         <div class="container">
-        <h1>🎯 knockOut Learn Support</h1>
+        <h1>🎯 knockOut Study Support</h1>
         <p class="subtitle">Master languages through spaced repetition and interactive lessons</p>
 
         <div class="contact-box">
@@ -325,7 +341,7 @@
 
         <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
         <p style="text-align: center; color: #666; font-style: italic;">
-            Thank you for using knockOut Learn! Your feedback helps us improve the app for everyone. 🙏
+                Thank you for using knockOut Study! Your feedback helps us improve the app for everyone. 🙏
         </p>
         </div>
     </div>
